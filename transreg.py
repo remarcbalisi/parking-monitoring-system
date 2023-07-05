@@ -106,7 +106,7 @@ class Transreg_Window:
         btn_frame.place(x=0, y=305, height=40, width=250)
 
         # Add button
-        btn_add = Button(btn_frame, text="Add", font=("Arial", 8, "bold"), bg="dark slate gray", fg="seashell2", bd=1, width=7, relief=RIDGE, command=self.add_data)
+        btn_add = Button(btn_frame, text="Add", font=("Arial", 8, "bold"), bg="dark slate gray", fg="seashell2", bd=1, width=7, relief=RIDGE)
         btn_add.grid(row=0, column=0, padx=2, pady=4)
 
         # Update button
