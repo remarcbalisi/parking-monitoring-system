@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image,ImageTk #pip install pillow
 
+from config import CURRENT_DIRECTORY
+
 
 class Transreg_Window:
     def __init__(self, root):
@@ -165,20 +167,19 @@ class Transreg_Window:
 
 ##___________________________IMAGES_______________________________________________________##
 
-        img7=Image.open(r"C:/Users/Acer/Downloads/parkme/images/two wheels.png")
+        img7=Image.open(f"{CURRENT_DIRECTORY}/images/two wheels.png")
         img7 = img7.resize((200,100),Image.LANCZOS)
         self.photoimg7 = ImageTk.PhotoImage(img7)
 
         lblimg = Label(self.root,image=self.photoimg7,bd=2,relief=RIDGE)
         lblimg.place(x=25,y=73,width=100,height=75)
 
-        img8=Image.open(r"C:/Users/Acer/Downloads/parkme/images/four wheels.png")
+        img8=Image.open(f"{CURRENT_DIRECTORY}/images/four wheels.png")
         img8 = img8.resize((100,90),Image.LANCZOS)
         self.photoimg8 = ImageTk.PhotoImage(img8)
 
         lblimg = Label(self.root,image=self.photoimg8,bd=2,relief=RIDGE)
         lblimg.place(x=123,y=73,width=100,height=75)
-
 
 
 if __name__ == "__main__":

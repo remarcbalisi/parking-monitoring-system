@@ -6,6 +6,9 @@ from transacthist import TransactHist_Window
 from paymenthist import PaymentHist_Window
 from monitoring import Monitoring_Window
 
+from config import CURRENT_DIRECTORY
+
+
 class ParkingManagementSystem:
     def __init__(self,root):
         self.root = root
@@ -14,7 +17,7 @@ class ParkingManagementSystem:
         self.root.resizable(0, 0)
 
 ##___________________________IMAGE 1_______________________________________________________##
-        img1=Image.open(r"C:/Users/Acer/Downloads/parkme/images/frontimge.png")
+        img1=Image.open(r"./images/frontimge.png")
         img1 = img1.resize((1000,250),Image.LANCZOS)
         self.photoimg1 = ImageTk.PhotoImage(img1)
 
@@ -57,7 +60,7 @@ class ParkingManagementSystem:
         occupancy_btn.grid(row=5,column=0)
 ##___________________________IMAGE 2_______________________________________________________##
 
-        img2=Image.open(r"C:/Users/Acer/Downloads/parkme/images/parking.jpg")
+        img2=Image.open(f"{CURRENT_DIRECTORY}/images/parking.jpg")
         img2 = img2.resize((416,300),Image.LANCZOS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
 
@@ -66,7 +69,7 @@ class ParkingManagementSystem:
 
 ##___________________________IMAGE 3_______________________________________________________##
 
-        img3=Image.open(r"C:/Users/Acer/Downloads/parkme/images/parkingbooth.png")
+        img3=Image.open(f"{CURRENT_DIRECTORY}/images/parkingbooth.png")
         img3 = img3.resize((415,200),Image.LANCZOS)
         self.photoimg3 = ImageTk.PhotoImage(img3)
 
@@ -75,7 +78,7 @@ class ParkingManagementSystem:
 
 ##___________________________IMAGE 4_______________________________________________________##
 
-        img4=Image.open(r"C:/Users/Acer/Downloads/parkme/images/parkingentrance.png")
+        img4=Image.open(f"{CURRENT_DIRECTORY}/images/parkingentrance.png")
         img4 = img4.resize((415,200),Image.LANCZOS)
         self.photoimg4 = ImageTk.PhotoImage(img4)
 
@@ -84,7 +87,7 @@ class ParkingManagementSystem:
 
 ##___________________________IMAGE 5_______________________________________________________##
 
-        img5=Image.open(r"C:/Users/Acer/Downloads/parkme/images/parkingstairs.png")
+        img5=Image.open(f"{CURRENT_DIRECTORY}/images/parkingstairs.png")
         img5 = img5.resize((415,200),Image.LANCZOS)
         self.photoimg5 = ImageTk.PhotoImage(img5)
 
@@ -93,7 +96,7 @@ class ParkingManagementSystem:
 
 ##___________________________LOGO_______________________________________________________##
 
-        img6=Image.open(r"C:/Users/Acer/Downloads/parkme/images/logo2.png")
+        img6=Image.open(f"{CURRENT_DIRECTORY}/images/logo2.png")
         img6 = img6.resize((170,110),Image.LANCZOS)
         self.photoimg6 = ImageTk.PhotoImage(img6)
 
@@ -122,25 +125,8 @@ class ParkingManagementSystem:
         self.app = Monitoring_Window(self.new_window)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
-    root=Tk()
-    obj=ParkingManagementSystem(root)
+    root = Tk()
+    obj = ParkingManagementSystem(root)
     root.configure(bg="gray")
     root.mainloop()
-
-
-

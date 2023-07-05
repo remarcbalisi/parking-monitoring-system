@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image,ImageTk #pip install pillow
 
+from config import CURRENT_DIRECTORY
+
 class Monitoring_Window:
     def __init__(self, root):
         self.root = root
@@ -145,14 +147,14 @@ class Monitoring_Window:
 
 ##___________________________IMAGES_______________________________________________________##
 
-        img9=Image.open(r"C:/Users/Acer/Downloads/parkme/images/two wheels.png")
+        img9=Image.open(f"{CURRENT_DIRECTORY}/images/two wheels.png")
         img9 = img9.resize((200,100),Image.LANCZOS)
         self.photoimg9 = ImageTk.PhotoImage(img9)
 
         lblimg = Label(self.root,image=self.photoimg9,bd=2,relief=RIDGE)
         lblimg.place(x=25,y=95,width=100,height=75)
 
-        img10=Image.open(r"C:/Users/Acer/Downloads/parkme/images/four wheels.png")
+        img10=Image.open(f"{CURRENT_DIRECTORY}/images/four wheels.png")
         img10 = img10.resize((100,90),Image.LANCZOS)
         self.photoimg10 = ImageTk.PhotoImage(img10)
 
