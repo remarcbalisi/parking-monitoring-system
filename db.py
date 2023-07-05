@@ -1,13 +1,10 @@
 import sqlite3
 
-
-def get_connection():
-    conn = sqlite3.connect('parkme.db')
-    return conn
+conn = sqlite3.connect('parkme.db')
 
 
 def create_vehicle_table():
-    get_connection().execute('''CREATE TABLE vehicle
+    conn.execute('''CREATE TABLE vehicle
              (
              plate_number   VARCHAR(20)    NOT NULL UNIQUE,
              category   VARCHAR(50)    NOT NULL
@@ -16,26 +13,26 @@ def create_vehicle_table():
 
 
 def get_all_vehicles():
-    cursor = get_connection().cursor()
+    cursor = conn.cursor()
     cursor.execute("SELECT plate_number, category from vehicle")
     for row in cursor.fetchall():
-        print("PLATE NUMBER = ", row[0])
-        print("CATEGORY = ", row[1], "\n")
+        print(row[0], row[1])
 
     cursor.close()
+    return cursor.fetchall()
 
 
 def insert_new_vehicle(plate_number, category):
-    cursor = get_connection().cursor()
+    cursor = conn.cursor()
     cursor.execute(f"INSERT INTO vehicle (plate_number, category) \
           VALUES ('{plate_number}', '{category}')")
-    get_connection().commit()
+    conn.commit()
     cursor.close()
 
 
 if __name__ == "__main__":
     pass
-    # print(get_connection())
+    # print(conn)
     # create_vehicle_table()
-    # insert_new_vehicle('123-abc', '4-wheels')
+    # insert_new_vehicle('123-efg', '4-wheels')
     get_all_vehicles()
