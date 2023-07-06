@@ -3,6 +3,8 @@ from tkinter import ttk
 from PIL import Image,ImageTk #pip install pillow
 
 from config import CURRENT_DIRECTORY
+from db import get_all_parking_spaces
+
 
 class Monitoring_Window:
     def __init__(self, root):
@@ -139,9 +141,18 @@ class Monitoring_Window:
 
         self.monitoring_details_table.column("Parking ID",width=70)
         self.monitoring_details_table.column("Parking Category",width=70)
-        self.monitoring_details_table.column("Parking Availability",width=80)
+        self.monitoring_details_table.column("Parking Availability", width=80)
         self.monitoring_details_table.column("Initial Fee",width=50)
         self.monitoring_details_table.column("Succeeding Fee",width=50)
+
+        # Inserting data to treeview
+        for key, parking_space in enumerate(get_all_parking_spaces()):
+            self.monitoring_details_table.insert("", 'end', iid=str(key),
+                       values=(parking_space[0], parking_space[1], 10, parking_space[2], parking_space[3]))
+
+        # Static insert
+        # self.monitoring_details_table.insert("", 'end', iid=str(2),
+        #                                      values=('static-id-1', 'static-category-1', 10, 30, 100))
 
         self.monitoring_details_table.pack(fill=BOTH, expand=1)
 

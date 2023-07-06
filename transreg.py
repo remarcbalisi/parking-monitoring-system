@@ -21,6 +21,7 @@ class Transreg_Window:
         self.var_timein=StringVar()
         self.var_date=StringVar()
         self.var_duration=StringVar()
+        self.table_value_start = 0
 
 ##___________________________TRANSACTION REGISTER TITLE_______________________________________________________##
 
@@ -121,6 +122,7 @@ class Transreg_Window:
                          )
         btn_add.grid(row=0, column=0, padx=2, pady=4)
 
+
         # Update button
         btn_update = Button(btn_frame, text="Update", font=("Arial", 8, "bold"), bg="dark slate gray", fg="seashell2", bd=1, width=7, relief=RIDGE)
         btn_update.grid(row=0, column=1, padx=2, pady=4)
@@ -173,6 +175,11 @@ class Transreg_Window:
         self.transreg_details_table.column("Duration",width=40)
 
         self.transreg_details_table.pack(fill=BOTH, expand=1)
+
+        # insert data here..
+        print("Nilabay ba diri?")
+        self.transreg_details_table.insert("", 'end', iid=str(self.table_value_start), values=('sample default plate', entry_vehicle_type.get(), '', '', '', ''))
+        self.table_value_start = self.table_value_start + 1
 
 
 ##___________________________IMAGES_______________________________________________________##
